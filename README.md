@@ -1,4 +1,4 @@
-This is the code for the XSS testing demo of the YUIConf 2012 talk "Security Testing of YUI-Powered Applications"
+This is the code for the XSS testing demo of the YUIConf 2012 talk "Security Testing of YUI-Powered Applications" (http://www.youtube.com/watch?v=EsTAJt29C_g)
 
 The slides are on http://www.slideshare.net/dimisec/security-testingofyui-poweredapplications 
 
