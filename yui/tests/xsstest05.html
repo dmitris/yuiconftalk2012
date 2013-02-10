@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="http://yui.yahooapis.com/3.8.1/build/yui/yui.js"></script>
+  </head>
+  <body>
+  <div id="testLogger" class="yui3-skin-sam"> 
+    <script>
+    YUI().use('node', 'test-console', function(Y) {
+      Y.namespace("example.xsstest");
+      Y.example.xsstest.XssTestCase = new Y.Test.Case({
+        name : 'XssTestCase',
+        setUp : function () {},
+        tearDown : function () {},
+        
+        'On the plain true, Y.Assert should be happy' : function () {
+          var Assert = Y.Assert;
+          Assert.isTrue(true);
+        },
+        'On the plain false, Y.Assert should be happy (intended fail for demo)' : function () {
+          var Assert = Y.Assert;
+          Assert.isTrue(false);
+        }
+        
+      });
+      Y.example.xsstest.ExampleSuite = new Y.Test.Suite("XSS Example Suite");
+      Y.example.xsstest.ExampleSuite.add(Y.example.xsstest.XssTestCase);
+      
+      //create the console
+      new Y.Test.Console({
+        filters: {
+          pass: true,
+          fail: true
+        }
+      }).render('#testLogger');
+      Y.Test.Runner.add(Y.example.xsstest.ExampleSuite);
+      
+      // run the tests
+      Y.Test.Runner.run();
+      
+    });
+     </script>
+  </body>
+</html>

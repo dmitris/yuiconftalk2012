@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- for local development:
+   <script src="../../js/yui-3.7.1/build/yui/yui.js"></script>
+    -->
+    <script src="http://yui.yahooapis.com/3.8.1/build/yui/yui.js"></script>
+   <link rel="stylesheet" type="text/css" href="todo.css">
+      <title>TodoApp</title>
+</head>
+<body>
+
+<!-- This is the main container and "shell" for the todo app. -->
+<div id="todo-app">
+    <label class="todo-label" for="new-todo">What do you want to do today?</label>
+    <input type="text" id="new-todo" class="todo-input"
+        placeholder="">
+
+    <ul id="todo-list"></ul>
+    <div class="todo-view">
+    </div>
+</div>
+
+<script>
+var todoview_node, todo_cached;
+YUI({
+  base: '../../js/yui-3.7.1/build/',
+//  combine: false
+}).use('escape', 'node',  function(Y) {
+    if (document.location.hash.substr(1)) {
+        todoview_node = Y.one('.todo-view');
+       todoview_node.setHTML('<input type="checkbox" class="todo-checkbox"><span class="todo-content" tabindex="0">' + Y.Escape.html(document.location.hash.substr(1)) + '</span>' );  
+        localStorage.setItem("todo", document.location.hash.substr(1));
+    } else {
+        todo_cached = localStorage.getItem("todo");
+        if (todo_cached != null) {
+            todoview_node = Y.one('.todo-view');
+            todoview_node.setHTML('<input type="checkbox" class="todo-checkbox"><span class="todo-content" tabindex="0">' + Y.Escape.html(todo_cached) + '</span>' ); 
+        }
+    }
+});
+</script>
+</body>
+</html>

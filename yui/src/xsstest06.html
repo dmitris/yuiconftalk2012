@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<!-- 
+ xsstest06.html
+ compared to xsstest05, the function Y.Xsstest.insert is modified to call a validation function
+-->
+
+<head>
+ <script src="../../js/yui-3.7.1/build/yui/yui.js"></script>
+</head>
+<body>
+Hello world! <BR><BR>
+<span>
+    Box 1
+</span>
+
+<span class="bob">
+    Box 2
+</span>
+<p>
+<div id="mytest">
+</div>
+
+<script>
+YUI({
+  base: '../../js/yui-3.7.1/build/',
+  combine: false,
+  modules: {
+    'xsstest' : {
+      fullpath: 'xsstest06.js',
+      requires: ['node-base']
+    }
+  }
+}).use('node', 'xsstest', function(Y){
+  var hashval,
+    target_elem_id;
+  // change the style of just the DOM node with the class "bob"
+  Y.one('.bob').setStyle('backgroundColor', '#FFD7AA');
+  hashval = document.location.hash;
+  if (hashval) {
+    hashval = hashval.substr(1);
+  }
+  target_elem_id = '#mytest';
+  if (hashval) {
+    Y.Xsstest.insert(target_elem_id, hashval);
+  }
+});
+</script>
+</body>
+</html>

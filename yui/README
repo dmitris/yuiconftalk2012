@@ -1,0 +1,6 @@
+In presentation, the following files are used:
+
+src/todo.html (vulnerable app) 
+src/todo_good.html (fixed version) 
+tests/xsstest06.html - YUI Test pointing to the vulnerable version (with failures)
+tests/xsstest07.html - same test pointing to the fixed version (all tests pass) 
