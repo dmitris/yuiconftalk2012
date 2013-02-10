@@ -2,8 +2,9 @@ This is the code for the XSS testing demo of the YUIConf 2012 talk "Security Tes
 
 http://www.yuiblog.com/blog/2013/01/23/yuiconf-2012-dmitry-savintsev-and-albert-yu-on-security-testing-of-yui-powered-applications/
 
-To use it, you need to put the code in the "yui" directory into your webserver root - 
-on Mac with the default webserver setup, you can copy or symlink it to your Sites directory.
+The slides are on http://www.slideshare.net/dimisec/security-testing-of-yui-powered-applications
+
+To try the demo code, you need to put the code in the "yui" directory into your webserver root - on Mac with the default webserver setup, you can copy or symlink it to your Sites directory.
 
 Below are brief descriptions of the directories and files and usage instructions:
 
