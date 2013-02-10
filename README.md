@@ -11,11 +11,11 @@ Below are brief descriptions of the directories and files and usage instructions
 webdriver_java/ - WebDriver code in Java 
 
 cd webdriver_java/todo_bad
-# the following command should produce failures as it tests vulnerable version of the app
-mvn install
+"mvn install" should produce failures as it tests vulnerable version of the app
+
 
 cd webdriver_java/todo_good
-# the following command should succeed (no test failures) as it tests fixed version of the app
+"mvn install" should succeed (no test failures) as it tests fixed version of the app
 mvn install
 
 webdriver_python - WebDriver code in Python
